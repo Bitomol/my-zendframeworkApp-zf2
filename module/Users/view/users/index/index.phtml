@@ -1,0 +1,20 @@
+ <?php 
+// Attached jQuery UI Scripts
+ $this->headScript()->appendFile('http://code.jquery.com/jquery-1.8.3.js','text/javascript');
+ $this->headScript()->appendFile('http://code.jquery.com/ui/1.10.0/jquery-ui.js','text/javascript');
+// Attach jQuery UI Styles 
+ $this->headLink()->appendStylesheet('http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css');
+ 
+ // UI Initializer for buttons
+ $this->headScript()->appendScript(
+'$(function() {
+ 	$("a.ui-button").button();
+  });', 'text/javascript');
+  
+?>
+<h1>Welcome in der Club</h1>
+<div>
+	<h4>Registrierte Benutzer | Neue Benutzer</h4> 
+	<!--<a href="/users/login" class='ui-button'>Anmelden</a>-->
+</div>
+<hr />

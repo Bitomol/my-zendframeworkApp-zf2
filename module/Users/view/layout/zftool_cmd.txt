@@ -1,0 +1,209 @@
+C:\xampp2\htdocs\zf2>..\..\php\php vendor\zendframework\zftool\zf.php
+ZFTool - Zend Framework 2 command line Tool
+
+--------------------------------------------------------------------------------------
+
+ZFTool
+--------------------------------------------------------------------------------------
+
+
+Basic information:
+  zf.php modules [list]         show loaded modules
+  zf.php version | --version    display current Zend Framework version
+
+Diagnostics
+  zf.php diag [options] [module name]    run diagnostics
+
+  [module name]    (Optional) name of module to test
+  -v --verbose     Display detailed information.
+  -b --break       Stop testing on first failure
+  -q --quiet       Do not display any output unless an error occurs.
+  --debug          Display raw debug info from tests.
+
+Application configuration:
+  zf.php config list                  list all configuration options
+  zf.php config get <name>            display a single config value, i.e. "config
+                                      get db.host"
+  zf.php config set <name> <value>    set a single config value (use only to change
+                                      scalar values)
+
+Project creation:
+  zf.php create project <path>    create a skeleton application
+
+  <path>    The path of the project to be created
+
+Module creation:
+  zf.php create module <name> [<path>]    create a module
+
+  <name>    The name of the module to be created
+  <path>    The root path of a ZF2 application where to create the module
+
+Controller creation:
+  zf.php create controller <name> <module> [<path>]    create a controller in
+                                                       module
+
+  <name>      The name of the controller to be created
+  <module>    The module in which the controller should be created
+  <path>      The root path of a ZF2 application where to create the controller
+
+Action creation:
+  zf.php create action <name> <controllerName> <module> [<path>]    create an
+                                                                    action in a
+                                                                    controller
+
+  <name>              The name of the action to be created
+  <controllerName>    The name of the controller in which the action should be
+                      created
+  <module>            The module containing the controller
+  <path>              The root path of a ZF2 application where to create the action
+
+Classmap generator:
+zf.php classmap generate <directory> <classmap file> [--append|-a] [--overwrite|-w]
+
+
+  <directory>         The directory to scan for PHP classes (use "." to use current
+                      directory)
+  <classmap file>     File name for generated class map file  or - for standard
+                      output. If not supplied, defaults to autoload_classmap.php
+                      inside <directory>.
+  --append | -a       Append to classmap file if it exists
+  --overwrite | -w    Whether or not to overwrite existing classmap file
+
+Zend Framework 2 installation:
+  zf.php install zf <path> [<version>]
+
+  <path>       The directory where to install the ZF2 library
+  <version>    The version to install, if not specified uses the last available
+
+Reason for failure: Invalid arguments or no arguments provided
+
+C:\xampp2\htdocs\zf2>
+
+
+
+---------------------------------------------------------------------------------------------------------
+
+For windows users, rare as they may be.
+
+You run zftool.php.bat from the root application folder, i.e zf2-tutorial.
+
+C:\zf2-tutorial>vendor\bin\zf.php.bat create-project PATH
+
+
+
+
+
+
+----
+
+I`ve had the same problem. What I did was:
+1) Download the Zip file manually from: https://github.com/zendframewo...
+2) Extract contents to -vendor/ZFTool insite your ZF2 application
+3) Download the PHAR.file from https://packages.zendframework...
+4) Replace zf.php with zftool.phar
+5) Run the commands from the ZFTool folder. Ie.: php zftool.phar create <function> <path to="" the="" root="" folder="" of="" your="" zf2="" application="">
+
+--------
+#
+Autoloading Standard
+
+https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md
+http://www.php-fig.org/psr/psr-4/
+https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader-examples.md
+
+
+
+------------
+changing routes
+
+http://framework.zend.com/manual/2.3/en/getting-started-with-zend-studio/the-application.html
+
+A quick tour of the skeleton application
+http://framework.zend.com/manual/2.3/en/getting-started-with-zend-studio/skeleton-application.html
+
+
+Getting Started with Zend Framework 2
+http://framework.zend.com/manual/current/en/user-guide/overview.html
+
+
+
+
+Understanding the Router
+http://framework.zend.com/manual/current/en/in-depth-guide/understanding-routing.html
+
+
+Zend Framework Tool (ZFTool)
+http://framework.zend.com/manual/current/en/modules/zendtool.introduction.html
+
+
+Introducing Services and the ServiceManager
+http://framework.zend.com/manual/current/en/in-depth-guide/services-and-servicemanager.html
+
+
+
+
+
+
+
+
+
+Advanced Configuration Tricks
+http://framework.zend.com/manual/current/en/tutorials/config.advanced.html
+
+
+
+
+
+
+
+
+
+
+Introducing our first “Blog” Module
+http://framework.zend.com/manual/current/en/in-depth-guide/first-module.html
+
+
+Modules  (Album)
+http://framework.zend.com/manual/current/en/user-guide/modules.html
+
+
+
+Tutorials
+---------
+http://zf2.readthedocs.org/en/latest/index.html#userguide
+http://zf2.readthedocs.org/en/latest/in-depth-guide/first-module.html
+http://zf2.readthedocs.org/en/latest/user-guide/overview.html#the-tutorial-application
+
+
+http://framework.zend.com/manual/1.12/de/learning.quickstart.intro.html
+
+
+
+Zend Framework 2 Modules Repository
+https://zfmodules.com/
+https://github.com/dudapiotr/ZfTable
+
+https://www.google.de/search?q=zf2+Modules+Repository+search&ie=utf-8&oe=utf-8&gws_rd=cr&ei=FYw0Ve-OFIjVauSvgIgC
+
+
+ Die Module im ZF2 sind echte Module, d.h. der Austausch zwischen Projekten oder der Einbau von Fremdmodulen ist ein großes Plus
+ wichtig finde ich den Service-Manager, da er im Vergleich zur Registry eine bessere Funktionalität bietet. Wenn man sich dann noch in die Dependency Injection richtig rein gedacht hat und die Abhängigkeiten zu anderen Klassen in Factories abbildet, anstatt sie fest zu kodieren, dann macht das Ganze richtig Spaß.
+
+Der Event-Manager zählt auch zu den wichtigsten Neuerungen und wurde zurecht auch ins ZF 1.12 zurück portiert. Auch in dieses Konzept muss man sich aber erst rein arbeiten, bis es seine vielen Vorteile ausspielen kann.
+
+
+Die Firma Zend selber bietet kostenlose Webinare aber auch Seminare und Support gegen Bezahlung an. Es wird sicher auch bald ein ZF2 Zertifikat geben. Die Zukunft bleibt also spannend.
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------
+
+Using Zend Framework service managers in your application
+https://juriansluiman.nl/article/120/using-zend-framework-service-managers-in-your-application
+http://www.stephenrhoades.com/?p=513
+https://samsonasik.wordpress.com/2013/01/02/zend-framework-2-cheat-sheet-service-manager/
+https://samsonasik.wordpress.com/2012/12/23/zend-framework-2-automatic-controller-invokables-via-abstract-factories/
+https://samsonasik.wordpress.com/2013/01/15/zend-framework-2-cheat-sheet-zenddb/

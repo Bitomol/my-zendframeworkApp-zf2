@@ -1,0 +1,162 @@
+<h1>Dokumentation</h1>
+
+
+##################################################
+
+<h3>ZF2-Framework Projekt + Neues Modul</h3>
+
+###################################################
+
+<hr>
+
+<p>
+1. Git.exe und composer.exe OpenSSL installieren <br><br>
+
+
+2. Skeleton Downloaden Aufruf mit Projektname  hier zf2-album
+
+
+	C:\xampp\htdocs>git clone git://github.com/zendframework/ZendSkeletonApplication.git zf2-Album
+
+
+	C:\xampp\htdocs>cd zf2-Album<br><br>
+
+
+3. Framework installieren im Projekt Ordner      
+
+
+	C:\xampp\htdocs\zf2-Album>..\..\php\php.exe composer.phar self-update
+
+
+	C:\xampp\htdocs\zf2-Album>..\..\php\php.exe composer.phar install<br><br>
+
+
+4. Neues Modul installieren mit Module Namen : hier Album
+
+
+	C:\xampp\htdocs\zf2-Album>cd module
+
+	C:\xampp\htdocs\zf2-Album\module>git clone git://github.com/zendframework/ZendSkeletonModule.git Album<br><br>
+
+
+
+5. Ordner anlegen
+
+	C:\xampp\htdocs\zf2-Album\module>cd Album
+
+
+	C:\xampp\htdocs\zf2-Album\module\Album>mkdir src\Album\Controller
+
+	C:\xampp\htdocs\zf2-Album\module\Album>mkdir view\album\index<br><br>
+
+
+
+
+6. Virtuellen Host anlegen für das neue Projekt
+
+</p>
+<hr>
+
+	Virtueller Host : SubDomän
+
+	Einfügen am Ende der Datei c:\xampp\apache\conf\httpd.conf<br><br>
+
+	<VirtualHost *:80>
+        	ServerName champion.local
+        	DocumentRoot C:/xampp/htdocs/zf2-Album/public
+        	SetEnv APPLICATION_ENV "development"
+        	<Directory C:/xampp/htdocs/zf2-Album/public>
+            	    DirectoryIndex index.php
+            	    AllowOverride All
+            	    Order allow,deny
+            	    Allow from all
+        	</Directory>
+	</VirtualHost><br><br>
+
+
+
+	<VirtualHost *:80>
+        	ServerName localhost
+        	DocumentRoot C:/xampp/htdocs
+        	SetEnv APPLICATION_ENV "development"
+        	<Directory C:/xampp/htdocs>
+            	    DirectoryIndex index.php
+            	    AllowOverride All
+            	    Order allow,deny
+            	    Allow from all
+        	</Directory>
+	</VirtualHost><br><br>
+
+
+
+	c:\windows\system32\drivers\etc\hosts
+
+	Eintrag am Ende einfügen
+
+	127.0.0.1		zf2.localhost localhost<br>
+
+
+
+
+
+7. Optional zftool installieren
+
+	
+	C:\xampp\htdocs\zf2>
+
+	C:\xampp\htdocs\zf2>..\..\php\php.exe composer.phar require zendframework/zftool
+
+
+  C:\xampp\htdocs\zf2>type composer.json
+
+  {
+    "name": "zendframework/skeleton-application",
+    "description": "Skeleton Application for ZF2",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "framework",
+        "zf2"
+    ],
+    "homepage": "http://framework.zend.com/",
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "~2.3",
+        "zendframework/zftool": "dev-master"
+     }
+   }
+
+C:\xampp\htdocs\zf2>dir composer.*
+
+
+ Verzeichnis von C:\xampp\htdocs\zf2
+
+14.04.2015  09:17               398 composer.json
+14.04.2015  09:17            12.630 composer.lock
+14.04.2015  09:05         1.075.456 composer.phar
+
+
+8. Neues Module anlegen mit zftool
+
+	C:\xampp\htdocs\zf2>..\..\php\php.exe vendor\zendframework\zftool\zf.php create module Users2
+
+
+	C:\xampp\htdocs\zf2>dir module
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
